@@ -73,7 +73,7 @@ const Login = () => {
 
         {/* Demo credentials */}
         <div style={{ marginTop: '20px', padding: '12px', background: 'var(--color-surface-2)', borderRadius: '8px', fontSize: '12px', color: 'var(--color-text-muted)', textAlign: 'center' }}>
-          Demo: <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--color-accent)' }}>demo@budget.app</span> / <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--color-accent)' }}>Demo@12345</span>
+          Demo: <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--color-accent)' }}>rakib.fullstack.dev@gmail.com</span> / <span style={{ fontFamily: 'var(--font-mono)', color: 'var(--color-accent)' }}>123456</span>
         </div>
 
         <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
