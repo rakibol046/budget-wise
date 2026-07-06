@@ -15,6 +15,7 @@ import Expenses from './pages/Expenses.jsx';
 import Settings from './pages/Settings.jsx';
 import Accounts from './pages/Accounts.jsx';
 import Categories from './pages/Categories.jsx';
+import Calculator from './components/Calculator.jsx';
 
 // Restore theme preference on app load
 const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -34,6 +35,7 @@ const Layout = ({ children }) => (
   <div style={{ minHeight: '100vh', background: 'var(--color-ground)' }}>
     <Navbar />
     <main>{children}</main>
+    <Calculator />
   </div>
 );
 
