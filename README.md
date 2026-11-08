@@ -208,7 +208,11 @@ This creates a demo account pre-loaded with sample data:
 
 Deploy from the repository root using the root `vercel.json`. It defines the Vite frontend and Express backend as services, with API rewrites evaluated before the frontend catch-all. Both `/api/*` and `/_/backend/api/*` reach the backend; the latter is also used by the mobile app. The Express app accepts both prefixes because service routing preserves the original request path.
 
+The frontend service also rewrites page URLs to `/index.html` so React Router can handle direct visits and refreshes on `/dashboard`, `/login`, and the other app routes. This fallback belongs inside the frontend service; the top-level rules select which service receives each request.
+
 Set the backend environment variables above in the Vercel project. After deploying, verify that `/_/backend/api/health` and `/_/backend/api/currencies` return JSON, then open `/dashboard` with an authenticated session. An HTML response from either API URL indicates a routing or project-root configuration problem.
+
+Run `node scripts/check-deployment.mjs https://your-deployment.vercel.app` to check direct page requests, the JavaScript bundle, and both API prefixes against the actual deployment. A successful build alone does not verify these routes.
 
 ---
 
