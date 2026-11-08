@@ -22,6 +22,8 @@ The project also served as a practical sandbox for building a modern full-stack 
 
 ## Features
 
+An Android app built with **React Native + Expo** is available in [`mobile/`](mobile/README.md). It connects to the same production API and includes native finance screens and APK build instructions.
+
 - **Dashboard** — monthly income vs. expense overview, top spending categories, recent transactions
 - **Expense Tracking** — add, edit, delete expenses with category tagging and notes; CSV export
 - **Monthly Budgets** — set per-category limits, track utilization, view month-over-month insights

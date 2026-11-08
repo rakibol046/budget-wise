@@ -1,0 +1,48 @@
+{
+  "name": "budgetwise-mobile",
+  "description": "BudgetWise native mobile app",
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@react-native-community/datetimepicker": "9.2.1",
+    "expo": "~58.0.23",
+    "expo-file-system": "~58.0.13",
+    "expo-font": "~58.0.11",
+    "expo-linear-gradient": "~58.0.3",
+    "expo-secure-store": "~58.0.2",
+    "expo-sharing": "~58.0.22",
+    "expo-status-bar": "~58.0.4",
+    "expo-system-ui": "~58.0.7",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-safe-area-context": "~5.11.1",
+    "react-native-web": "^0.21.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/react": "~19.3.0",
+    "prettier": "^3.9.10",
+    "typescript": "~6.0.3"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "web": "expo start --web",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run typecheck && npm test",
+    "build:apk": "npx eas-cli build --platform android --profile preview",
+    "build:apk:local": "bash scripts/build-apk.sh",
+    "export:android": "expo export --platform android",
+    "test:browser": "expo export --platform web && playwright test",
+    "format": "prettier --write App.tsx src tests app.json eas.json package.json playwright.config.ts"
+  },
+  "private": true,
+  "engines": {
+    "node": "^22.13.0 || ^24.3.0 || >=26.0.0"
+  }
+}

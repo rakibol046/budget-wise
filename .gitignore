@@ -27,3 +27,16 @@ Thumbs.db
 
 # Claude
 .claude/
+
+# Expo / native build output and signing credentials
+mobile/.expo/
+mobile/dist/
+mobile/android/
+mobile/ios/
+mobile/artifacts/
+mobile/.build-tools/
+*.jks
+*.keystore
+credentials.json
+mobile/playwright-report/
+mobile/test-results/
