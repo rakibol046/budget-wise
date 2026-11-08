@@ -8,6 +8,7 @@
     "build": "vite build",
     "vercel-build": "vite build",
     "preview": "vite preview",
+    "test": "node --test tests/*.test.js",
     "lint": "eslint src --ext .jsx,.js",
     "format": "prettier --write \"src/**/*.{js,jsx}\""
   },

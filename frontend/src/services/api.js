@@ -1,7 +1,9 @@
 import axios from 'axios';
+import toast from 'react-hot-toast';
+import { validateApiResponse } from './apiResponse.js';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '/_/backend/api' : 'http://localhost:5000/api'),
   headers: { 'Content-Type': 'application/json' },
   timeout: 10000,
 });
@@ -23,7 +25,14 @@ api.interceptors.request.use((config) => {
 
 // On 401, clear auth and redirect to login
 api.interceptors.response.use(
-  (res) => res,
+  (res) => {
+    try {
+      return validateApiResponse(res);
+    } catch (err) {
+      toast.error(err.message, { id: 'invalid-api-response' });
+      return Promise.reject(err);
+    }
+  },
   (err) => {
     if (err.response?.status === 401) {
       localStorage.removeItem('budget-auth');

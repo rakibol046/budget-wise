@@ -202,7 +202,13 @@ This creates a demo account pre-loaded with sample data:
 
 | Variable | Required | Description |
 |---|---|---|
-| `VITE_API_URL` | Yes | Backend API base URL |
+| `VITE_API_URL` | No | Backend API base URL. Defaults to `http://localhost:5000/api` in development and `/_/backend/api` in production. |
+
+### Vercel deployment
+
+Deploy from the repository root using the root `vercel.json`. It defines the Vite frontend and Express backend as services, with API rewrites evaluated before the frontend catch-all. Both `/api/*` and `/_/backend/api/*` reach the backend; the latter is also used by the mobile app. The Express app accepts both prefixes because service routing preserves the original request path.
+
+Set the backend environment variables above in the Vercel project. After deploying, verify that `/_/backend/api/health` and `/_/backend/api/currencies` return JSON, then open `/dashboard` with an authenticated session. An HTML response from either API URL indicates a routing or project-root configuration problem.
 
 ---
 
